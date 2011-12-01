@@ -1,0 +1,61 @@
+-- Resource View --
+Author: Will Gaggioli
+Use as you see fit
+
+To initialize:
+
+$(container_object).resourceView({
+    option1: value,
+    ...
+});
+
+To use methods:
+
+$(container_object).data('resourceView').method(...);
+
+Options:
+
+*  resources       array of objects with name and id attributes
+*  resource_label  label to put in the table head above the resources
+*                  (default Resources)
+*  events          array of objects with the following attributes:
+*                      * resource_id
+*                      * date_start
+*                      * date_end
+*                      * display (optional): html to display for event
+*                      * top (optional): boolean, may not use this
+*  events_url      url to which to make an ajax request to collect events
+*                  array, which must be accessable via 'events' property
+*                  of the response
+*  render_event	function to call that returns the html al dentro de
+*  				un event (default will look for display html)
+*  cell_content	function to call that returns the contents of a cell
+*  date_start      start date to use for calendar
+*  days            number of days displayed at a time
+*  fetch_data		data to include in ajax request to fetch events. If
+*  				a callable, is called to obtain the data.
+*  left_nav		html content of left nav button
+*  right_nav		html content of right nav button
+*  double_left_nav 	content of double left nav
+*  double_right_nav	content of double right nav
+*  date_picker		html content of date picker buttons
+*  selectable		mimics jquery ui's selectable behavior for cells
+*  resizable		allows extension along left, right (requires
+*  				jquery-ui resizable)
+*  draggable		allows drag and drop of events
+*  event_click		function triggered on event click
+*  cell_select		function triggered on cell select
+*  cell_deselect   function triggered on cell deselect
+*  on_resize		function triggered on event resize
+*  resize_start	function triggered on start of resize
+*  on_drag			function triggered when cell is dragged
+*  drag_start		function triggered on start of drag
+*  on_over			function triggered on mouse over
+*  on_out			function triggered on mouse out
+
+Methods:
+
+fetchEvents() -- fetches events from the server and rerenders
+getDateAtIndex(i) -- gets date at index i
+clearCache -- clears the position cache, do this if manually resizing
+render -- initial render
